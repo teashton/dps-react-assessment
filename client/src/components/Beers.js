@@ -14,6 +14,7 @@ class Beers extends React.Component {
       .then( res => {
         let { data } = res;
         this.setState({ entries: data.entries, totalPages: data.total_pages })
+        this.props.dispatch({type: data.entries})
       });
   }
 
@@ -31,6 +32,8 @@ class Beers extends React.Component {
     let { entries, show, page, totalPages } = this.state;
     return (
       <Container>
+      <Button onClick={this.loadMore}>Show next 50 Beers!
+        </Button>
         <Header style={styles.text} as="h1">{`Showing ${show} entries`}</Header>
         <List divided >   
             { entries.map( s => 
@@ -44,6 +47,8 @@ class Beers extends React.Component {
               )
             }           
         </List>
+        <Button onClick={this.loadMore}>Show next 50 Beers!
+        </Button>
       </Container>
     )
   }
