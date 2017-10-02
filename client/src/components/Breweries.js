@@ -3,14 +3,14 @@ import axios from 'axios';
 import Home from './Home';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Button, Header, List, Container, Loader, Segment } from 'semantic-ui-react';
+import { Button, Header, List, Container, Loader, Segment } from 'semantic-ui-react';
 
 
-class Beers extends React.Component {
+class Breweries extends React.Component {
   state = { entries: [], show: 'All', page: 1, totalPages: 0 }
 
   componentDidMount() {
-    axios.get('/api/all_beers')
+    axios.get('/api/all_breweries')
       .then( res => {
         let { data } = res;
         this.setState({ entries: data.entries, totalPages: data.total_pages })
@@ -20,44 +20,33 @@ class Beers extends React.Component {
 
   loadMore = () => {
     const page = this.state.page + 1;
-    axios.get(`/api/all_beers?page=${page}&per_page=5page`)
+    axios.get(`/api/all_breweries?page=${page}&per_page=5page`)
       .then( ({ data }) => {
         this.setState( state => {
           return { entries: [...state.entries, ...data.entries], page: state.page + 1 }})
       });
   }
+
  
- // brewData = (s) => {
- //    const brewery = 
- //    axios.get(`'/api/all_breweries'${s.name}`)
- //      .then ( ({ data }) => {
- //        this.brewData( state => {
- //          return { entries: [state.entries]}
- //        });
- //      })
- // ----------------------NOT WORKING AS OF YET--------------------------
-
- //  }
-
   render() {
     let { entries, show, page, totalPages } = this.state;
     return (
-      <Container style={styles.segmentWidth}>
-        <Button onClick={this.loadMore}>Show next 5 Beers!</Button>
-          <Header style={styles.text} as="h1">{`${show} Beers!`}</Header>
+      <Container>
+        <Button onClick={this.loadMore}>Show next 5 Breweries!</Button>
+          <Header style={styles.text} as="h1">{`${show} Breweries!`}</Header>
            { entries.map( s => 
               <div>
               <h1></h1>
               <h1></h1>
-              <Segment style={styles.background}>
               <button onClick={this.brewData}>Expand</button>
+              <Segment style={styles.background}>
                 <p style={styles.headText}>{s.name}</p>
                 <p style={styles.text}>{s.description}</p>
               </Segment>
               </div>
             )
           }          
-        <Button onClick={this.loadMore}>Show next 5 Beers!</Button>
+        <Button onClick={this.loadMore}>Show next 5 Breweries!</Button>
       </Container>
     )
   }
@@ -76,13 +65,9 @@ const styles = {
   },
   background: {
     backgroundColor: '#212121'
-  },
-  segmentWidth: {
-    width: '500px'
   }
-
 }
-export default connect()(Beers);
+export default connect()(Breweries);
 
 
 

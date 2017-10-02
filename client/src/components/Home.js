@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Header, Segment, Divider, Grid, Image } from 'semantic-ui-react';
 import ReactMarkDown from 'react-markdown';
 import Beers from './Beers';
+import Breweries from './Breweries';
 import axios from 'axios';
 import dpsLogo from '../images/dpsLogo.svg';
 
