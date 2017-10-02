@@ -91,37 +91,23 @@ T: 18:03
 START
 Sunday 9:31 pm
 
- looking for a way to show the information by using a button. Theory I think I know how to do this but unfortunately, its not working out in reality.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ looking for a way to show the information by using a button. Theory I think I know how to do 
+this but unfortunately, its not working out in reality.
  Just got it to only show 5 entries each time that it displays a 
+ Got the Cards to work on the beers component.
+ Got the Cards to work on the brewery component. Applied scrolling to the cards. Seems to work 
+well. Also added an image to the page with a header. Can't seem to get the header to center
+properly. I had to rig it using padding % which doesn't look good in a reactive app. 
+ Trying to get all the styling looking decent. It doesn't. Will try to finish objective 3. Not really sure how it's going to turn out. I dont really know how to search for things. So this is going to be an experience.
 
+END
+Sunday 12:49 pm
++3:20
+--------
+T: 21:20
+-----------------------------------
+-----------------------------------
+make an input chane the endpoint of a url so it renders a url that contains a specific beer
 
 
 

@@ -3,11 +3,20 @@ import axios from 'axios';
 import Home from './Home';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Button, Header, List, Container, Loader, Segment } from 'semantic-ui-react';
+import brewLogo from '../images/brewLogo.png'
+import { Divider,
+         Image, 
+         Grid, 
+         Card, 
+         Button, 
+         Header,  
+         Container, 
+         Loader, 
+         Segment } from 'semantic-ui-react';
 
 
 class Beers extends React.Component {
-  state = { entries: [], show: 'All', page: 1, totalPages: 0 }
+  state = { entries: [], show: 'Home', page: 1, totalPages: 0 }
 
   componentDidMount() {
     axios.get('/api/all_beers')
@@ -27,41 +36,30 @@ class Beers extends React.Component {
       });
   }
  
- // brewData = (s) => {
- //    const brewery = 
- //    axios.get(`'/api/all_breweries'${s.name}`)
- //      .then ( ({ data }) => {
- //        this.brewData( state => {
- //          return { entries: [state.entries]}
- //        });
- //      })
- // ----------------------NOT WORKING AS OF YET--------------------------
-
- //  }
-
   render() {
     let { entries, show, page, totalPages } = this.state;
     return (
-      <Container style={styles.segmentWidth}>
-        <Button onClick={this.loadMore}>Show next 5 Beers!</Button>
-          <Header style={styles.text} as="h1">{`${show} Beers!`}</Header>
-           { entries.map( s => 
-              <div>
-              <h1></h1>
-              <h1></h1>
-              <Segment style={styles.background}>
-              <button onClick={this.brewData}>Expand</button>
-                <p style={styles.headText}>{s.name}</p>
-                <p style={styles.text}>{s.description}</p>
-              </Segment>
-              </div>
-            )
-          }          
-        <Button onClick={this.loadMore}>Show next 5 Beers!</Button>
-      </Container>
-    )
-  }
-}
+      <Container>
+        <Image style={styles.padTop} src={brewLogo} shape='circular' centered/> <span>Top Aligned</span>
+          <span><Header style={styles.padTop2} centered>{`${show} Brews!`}</Header></span>
+            <Container fluid>
+              <Grid style={styles.padding} columns={3} centered>
+                { entries.map( s => 
+                  <Card.Group>
+                    <Card style={styles.cardColor}> 
+                      <Card.Content>
+                        <Card.Header style={styles.name}>{s.name} </Card.Header>
+                          <Divider />
+                        <Card.Description style={styles.appDescription}>{s.description}</Card.Description>
+                      </Card.Content>
+                    </Card>
+                  </Card.Group>
+                )} 
+              </Grid>
+            </Container>
+          <Button inverted color='orange' onClick={this.loadMore} attached='bottom'>Show next 5 Beers!</Button>
+        </Container>
+      )}}
 
 const styles = {
   header: {
@@ -77,33 +75,42 @@ const styles = {
   background: {
     backgroundColor: '#212121'
   },
-  segmentWidth: {
-    width: '500px'
+  padding: {
+    marginBottom: '2rem'
+  },
+  padTop: {
+    marginTop: '5rem',
+    color: '#2ecc40',
+    marginBottom: '2rem'
+  },
+  padTop2: {
+    marginTop: '1rem',
+    color: '#2ecc40',
+    marginBottom: '4rem',
+    fontFamily: 'Cursive',
+    textAlign: 'centered',
+    fontSize: '80px',
+    color: '#f7d796',
+    paddingLeft: '30.5%'
+
+  },
+  appDescription: {
+    height: '200px',
+    overflowY: 'scroll',
+    color: '#f7d796'
+  },
+  centered: {
+    Aligned: 'centered'
+  },
+  cardColor: {
+    background: '#665a3e'
+  },
+  name: {
+    color: 'orange'
   }
 
 }
 export default connect()(Beers);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
