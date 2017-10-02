@@ -29,7 +29,7 @@ class Beers extends React.Component {
 
   loadMore = () => {
     const page = this.state.page + 1;
-    axios.get(`/api/all_beers?page=${page}&per_page=5page`)
+    axios.get(`/api/all_beers?page=${page}&per_page=10page`)
       .then( ({ data }) => {
         this.setState( state => {
           return { entries: [...state.entries, ...data.entries], page: state.page + 1 }})
@@ -57,7 +57,7 @@ class Beers extends React.Component {
                 )} 
               </Grid>
             </Container>
-          <Button inverted color='orange' onClick={this.loadMore} attached='bottom'>Show next 5 Beers!</Button>
+          <Button inverted color='orange' onClick={this.loadMore} attached='bottom'>Show next 10 Beers!</Button>
         </Container>
       )}}
 

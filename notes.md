@@ -19,8 +19,8 @@ Saturaday 12:30 pm.
 
  I CANT GET THIS DAMN THING TO SHOW THE INFO FROM THE API!!!!
 
- tried getting postman to do anything at all i can bring up a huge list of stuff in postman now but
- I can not get it to show in the main page.
+ tried getting postman to do anything at all i can bring up a huge list of stuff in postman now
+but I can not get it to show in the main page.
 
 END
 Saturday 2:30 pm
@@ -107,24 +107,18 @@ Sunday 12:49 pm
 T: 21:20
 -----------------------------------
 -----------------------------------
-make an input chane the endpoint of a url so it renders a url that contains a specific beer
+START
+Monday 8:10 am
 
+ FIXED MINOR BUGS
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+END
+Monday 8:20 am
++0.10
+--------
+T: 21:30
+-----------------------------------
+-----------------------------------
 
 
 
